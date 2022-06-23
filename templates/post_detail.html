@@ -1,0 +1,30 @@
+
+{% extends 'main.html' %}
+{% block title %}{{data.title}}{% endblock %}
+<!-- define block -->
+{% block content %}
+<main class="my-5">
+    <div class="container">
+      <!--Section: Content-->
+           <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        
+                        <h3>{{ data.title }}</h3>
+                        <span> {{ data.category_id.title }} | {{ data.created_at|date:'M d Y' }}</span>
+                        <br/>
+                        <div>
+                            {% if data.image %}
+                                <img src="{{ data.image.url }}" style="width:500px;height:auto">
+                            {% endif %}
+                        </div>
+                        <h5>{{data.intro}}</h5>
+                        <p>
+                            {{ data.body }}
+                        </p>
+                    </div>
+            </div>
+      <!--Section: Content-->
+
+    </div>
+  </main>
+{% endblock content %}

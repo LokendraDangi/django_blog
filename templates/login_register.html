@@ -1,0 +1,64 @@
+
+{% extends 'main.html' %}
+
+<!-- define block -->
+{% block content %}
+<main class="my-5">
+    <div class="container">
+      <!--Section: Content-->
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 ">
+            {% if page == 'register'%}
+                <h5>Register</h5>
+                {% include 'common/message.html' %}
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <div>
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" name="username" placeholder="Enter Username">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="Enter Email">
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                    </div>
+                    <div>
+                        <label for="confirm_password">Confirm Password</label>
+                        <input type="password" class="form-control" name="confirm_password" placeholder="Enter confirm_password">
+                    </div>
+                    <div>
+                        <input type="submit" value="Register">
+                    </div>
+                    <p>Already Registered? <a href="{% url 'signin' %}">Log in</a></p>
+                </form>
+            {% else %}
+                <h5>Login</h5>
+                {% include 'common/message.html' %}
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <div>
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" name="username" placeholder="Enter Username">
+                    </div>
+                    
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                    </div>
+                    
+                    <div>
+                        <input type="submit" value="Log In">
+                    </div>
+                    <p>Not Registered Yet? <a href="{% url 'signup' %}">Register Here</a></p>
+
+                </form>
+            {% endif %}
+        </div>
+      </div>
+        
+    </div>
+  </main>
+{% endblock content %}

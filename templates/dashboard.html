@@ -1,0 +1,15 @@
+
+{% extends 'main.html' %}
+{% block title %}Dashboard{% endblock %}
+<!-- define block -->
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% include 'common/menu.html' %}
+            <div class="col-md-9">
+                <h3>Dashboard</h3>
+                {% include 'common/message.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

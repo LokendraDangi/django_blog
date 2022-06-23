@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>API Posts</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+
+    <h1>Posts From Api</h1>
+
+    <div id="posts-container">
+
+    </div>
+
+</body>
+    
+<script>
+    let postsContainer = document.getElementById('posts-container')
+
+    let getposts = async () => {
+        let response = await fetch('http://127.0.0.1:8000/api/posts/')
+        let posts = await response.json()
+
+        for (let i = 0; posts.length > i; i++) {
+            let post = posts[i]
+
+            let row = `<div>
+                            <h3>${post.title}!!!</h3>
+                        </div>`
+
+            postsContainer.innerHTML += row
+        }
+    }
+
+    getposts()
+</script>
+</html>

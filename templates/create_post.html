@@ -1,0 +1,24 @@
+
+{% extends 'main.html' %}
+{% block title %}Create Post{% endblock %}
+<!-- define block -->
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% include 'common/menu.html' %}
+            <div class="col-md-9">
+                <h3>Create Post</h3>
+                {% include 'common/message.html' %}
+
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {{form.as_p}}
+
+                    <input type="submit" value="Save Post">
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
